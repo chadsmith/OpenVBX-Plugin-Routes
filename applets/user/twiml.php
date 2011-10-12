@@ -20,10 +20,10 @@ if(!empty($allowed) && !empty($_REQUEST['From'])) {
 	}
 }
 
-$response = new Response();
+$response = new TwimlResponse;
 
 $next = AppletInstance::getDropZoneUrl($is_user ? 'is_user' : 'not_user');
 if(!empty($next))
-	$response->addRedirect($next);
+	$response->redirect($next);
 
-$response->Respond();
+$response->respond();
