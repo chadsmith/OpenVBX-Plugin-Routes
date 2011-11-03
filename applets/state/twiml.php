@@ -7,11 +7,11 @@ $menu_items = AppletInstance::assocKeyValueCombine($keys, $responses, 'strtolowe
 if(!empty($_REQUEST['FromState']))
 	$state = strtolower($_REQUEST['FromState']);
 
-$response = new Response();
+$response = new TwimlResponse;
 
 if(!empty($state) && array_key_exists($state, $menu_items) && !empty($menu_items[$state]))
-	$response->addRedirect($menu_items[$state]);
+	$response->redirect($menu_items[$state]);
 elseif(!empty($invalid_option))
-	$response->addRedirect($invalid_option);
+	$response->redirect($invalid_option);
 
-$response->Respond();
+$response->respond();

@@ -11,11 +11,11 @@ if(!empty($_REQUEST['From'])) {
 		$areacode = $matches[1];
 }
 
-$response = new Response();
+$response = new TwimlResponse;
 
 if(!empty($areacode) && array_key_exists($areacode, $menu_items) && !empty($menu_items[$areacode]))
-	$response->addRedirect($menu_items[$areacode]);
+	$response->redirect($menu_items[$areacode]);
 elseif(!empty($invalid_option))
-	$response->addRedirect($invalid_option);
+	$response->redirect($invalid_option);
 
-$response->Respond();
+$response->respond();

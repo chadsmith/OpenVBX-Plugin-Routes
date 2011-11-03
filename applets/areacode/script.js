@@ -3,8 +3,8 @@ $(function() {
 
 	$('.areacode-applet input.keypress').live('keyup', function(event) {
 		var row = $(this).closest('tr');
-		$('input[name^="keys"]', row).attr('name', 'keys['+$(this).val()+']');
-		$('input[name^="responses"]', row).attr('name', 'responses['+$(this).val()+']');
+		$('input[name^="keys"]', row).attr('name', 'keys[' + $(this).val() + ']');
+		$('input[name^="responses"]', row).attr('name', 'responses[' + $(this).val() + ']');
 	});
 	
 	$('.areacode-applet .action.add').live('click', function(event) {
