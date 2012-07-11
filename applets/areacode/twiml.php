@@ -5,8 +5,8 @@ $responses = (array) AppletInstance::getDropZoneUrl('responses[]');
 $menu_items = AppletInstance::assocKeyValueCombine($keys, $responses);
 $areacode = null;
 
-if(!empty($_REQUEST['From'])) {
-	$number = normalize_phone_to_E164($_REQUEST['From']);
+if(!empty($_REQUEST['Direction'])) {
+	$number = normalize_phone_to_E164(in_array($_REQUEST['Direction'], array('inbound', 'incoming')) ? $_REQUEST['From'] : $_REQUEST['To']);
 	if(preg_match('/^\+1([0-9]{3})[0-9]{7}$/', $number, $matches))
 		$areacode = $matches[1];
 }
