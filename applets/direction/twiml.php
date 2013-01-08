@@ -1,7 +1,7 @@
 <?php
 $direction = 'inbound';
 
-if(!empty($_REQUEST['Direction']) && 'inbound' != $_REQUEST['Direction'])
+if(isset($_REQUEST['Direction']) && !in_array($_REQUEST['Direction'], array('inbound', 'incoming')))
   $direction = 'outbound';
 
 $response = new Response();

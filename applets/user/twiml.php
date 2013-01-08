@@ -3,7 +3,7 @@ $allowed = AppletInstance::getUserGroupPickerValue('user_or_group');
 $is_user = false;
 $from_or_to = 'From';
 
-if(!empty($_REQUEST['Direction']) && !in_array($_REQUEST['Direction'], array('inbound', 'incoming')))
+if(isset($_REQUEST['Direction']) && !in_array($_REQUEST['Direction'], array('inbound', 'incoming')))
   $from_or_to = 'To';
 
 if(!empty($allowed) && !empty($_REQUEST[$from_or_to])) {
